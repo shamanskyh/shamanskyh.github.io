@@ -7,10 +7,10 @@ body {
 .calendar {
 	font-size: 40px;
 	font-weight: bold;
-	position: absolute;
-	float: right;
-	top: 400px;
-	right: 500px;
+	position: relative;
+	float: left;
+	font-size: 30px;
+	font-weight: bold;
 }
 
 .calendar h1 {
@@ -20,10 +20,9 @@ body {
 .forecast {
 	font-size: 40px;
 	font-weight: bold;
-	position: absolute;
+	position: relative;
 	float: left;
-	top: 400px;
-	left: 100px;
+	margin-right: 150px;
 }
 
 .forecast h1 {
@@ -62,6 +61,12 @@ body {
 	margin-bottom: 10px;
 	font-size: 60px;
 	vertical-align: top;
+}
+
+.lower-boxes {
+	position: absolute;
+	top: 400px;
+	left: 100px;
 }
 
 .temperature {

@@ -20,7 +20,7 @@ var getJSON = function(url, callback) {
 var locationString = "OH/43221";
 
 var updateCurrentTemp = function() {
-  getJSON('http://api.wunderground.com/api/13fa6ccf8c8d3753/conditions/q/' + locationString + '.json',
+  getJSON('https://api.wunderground.com/api/13fa6ccf8c8d3753/conditions/q/' + locationString + '.json',
   function(err, data) {
     if (err == null) {
       let temp = Math.round(data.current_observation.temp_f);
@@ -43,7 +43,7 @@ var updateCurrentTime = function() {
 }
 
 var updateForecast = function() {
-  getJSON('http://api.wunderground.com/api/13fa6ccf8c8d3753/hourly/q/' + locationString + '.json',
+  getJSON('https://api.wunderground.com/api/13fa6ccf8c8d3753/hourly/q/' + locationString + '.json',
   function(err, data) {
     if (err == null) {
       var i = 0;

@@ -1,0 +1,95 @@
+body {
+	background: #000000;
+	color: #FFFFFF;
+	font-family: 'Lato', sans-serif;
+}
+
+.calendar {
+	font-size: 40px;
+	font-weight: bold;
+	position: absolute;
+	float: right;
+	top: 400px;
+	right: 500px;
+}
+
+.calendar h1 {
+	font-size: 40px;
+}
+
+.forecast {
+	font-size: 40px;
+	font-weight: bold;
+	position: absolute;
+	float: left;
+	top: 400px;
+	left: 100px;
+}
+
+.forecast h1 {
+	font-size: 40px;
+}
+
+.hourly-forecast {
+	text-align: center;
+	font-size: 30px;
+	font-weight: bold;
+	float: left;
+	padding-right: 10px;
+	margin-right: 10px;
+	border-right: 3px solid #FFFFFF;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.hourly-forecast:last-child {
+	border-right: none;
+}
+
+.hourly-forecast p {
+	padding-top: 0px;
+	padding-bottom: 0px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+.hourly-forecast p:last-child {
+	font-size: 50px;
+}
+
+.hourly-forecast p i {
+	margin-top: 20px;
+	margin-bottom: 10px;
+	font-size: 60px;
+	vertical-align: top;
+}
+
+.temperature {
+	font-size: 130px;
+	font-weight: bold;
+	position: absolute;
+	top: 0px;
+	left: 100px;
+	float: left;
+}
+
+.temperature i {
+	font-size: 100px;
+	margin-right: 20px;
+	vertical-align: top;
+	margin-top: 30px;
+}
+
+.time {
+	font-size: 130px;
+	font-weight: bold;
+	position: absolute;
+	top: 0px;
+	right: 100px;
+	float: right;
+}
+
+.time .colon {
+	position: relative;
+	bottom: 15px;
+}

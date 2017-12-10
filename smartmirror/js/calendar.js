@@ -34,7 +34,6 @@ function initClient() {
     updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
     var authorizeButton = document.getElementById('authorize-button');
     authorizeButton.onclick = handleAuthClick;
-    //signoutButton.onclick = handleSignoutClick;
   });
 }
 
@@ -46,12 +45,10 @@ function updateSigninStatus(isSignedIn) {
   if (isSignedIn) {
     var authorizeButton = document.getElementById('authorize-button');
     authorizeButton.style.display = 'none';
-    //signoutButton.style.display = 'block';
     listUpcomingEvents();
   } else {
     var authorizeButton = document.getElementById('authorize-button');
     authorizeButton.style.display = 'block';
-    //signoutButton.style.display = 'none';
   }
 }
 
@@ -60,13 +57,6 @@ function updateSigninStatus(isSignedIn) {
  */
 function handleAuthClick(event) {
   gapi.auth2.getAuthInstance().signIn();
-}
-
-/**
- *  Sign out the user upon button click.
- */
-function handleSignoutClick(event) {
-  gapi.auth2.getAuthInstance().signOut();
 }
 
 /**
@@ -84,19 +74,17 @@ function listUpcomingEvents() {
     'orderBy': 'startTime'
   }).then(function(response) {
     var events = response.result.items;
-    print('Upcoming events:');
-
-    if (events.length > 0) {
+    if (events.length < 0) {
       for (i = 0; i < events.length; i++) {
         var event = events[i];
         var when = event.start.dateTime;
         if (!when) {
           when = event.start.date;
         }
-        print(event.summary + ' (' + when + ')')
+        //print(event.summary + ' (' + when + ')')
       }
     } else {
-      print('No upcoming events found.');
+      document.getElementsByClassName('calendar')[0].innerHTML = "<h1>Calendar</h1><p>No upcoming events today.</p>";
     }
   });
 }

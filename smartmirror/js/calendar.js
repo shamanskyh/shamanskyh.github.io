@@ -9,8 +9,6 @@ var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/
 // included, separated by spaces.
 var SCOPES = "https://www.googleapis.com/auth/calendar.readonly";
 
-var authorizeButton = document.getElementById('authorize-button');
-
 /**
  *  On load, called to load the auth2 library and API client library.
  */
@@ -34,6 +32,7 @@ function initClient() {
 
     // Handle the initial sign-in state.
     updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
+    var authorizeButton = document.getElementById('authorize-button');
     authorizeButton.onclick = handleAuthClick;
     //signoutButton.onclick = handleSignoutClick;
   });
@@ -45,10 +44,12 @@ function initClient() {
  */
 function updateSigninStatus(isSignedIn) {
   if (isSignedIn) {
+    var authorizeButton = document.getElementById('authorize-button');
     authorizeButton.style.display = 'none';
     //signoutButton.style.display = 'block';
     listUpcomingEvents();
   } else {
+    var authorizeButton = document.getElementById('authorize-button');
     authorizeButton.style.display = 'block';
     //signoutButton.style.display = 'none';
   }

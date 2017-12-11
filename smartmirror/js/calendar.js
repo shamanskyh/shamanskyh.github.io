@@ -87,6 +87,7 @@ function listUpcomingEvents() {
         if (!when) {
           timeString = "All day";
         } else {
+          when = new Date(when);  // convert to a date object
           var hours = when.getHours();
           var minutes = when.getMinutes();
           var ampm = hours >= 12 ? 'pm' : 'am';

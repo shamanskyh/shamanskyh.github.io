@@ -47,6 +47,7 @@ function updateSigninStatus(isSignedIn) {
   if (isSignedIn) {
     var authorizeButton = document.getElementById('authorize-button');
     authorizeButton.style.display = 'none';
+    listUpcomingEvents();
     updateEvents = setInterval(listUpcomingEvents, 10000); // every ten seconds for testing
   } else {
     var authorizeButton = document.getElementById('authorize-button');

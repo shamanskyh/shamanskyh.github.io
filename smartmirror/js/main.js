@@ -64,7 +64,10 @@ var updateForecast = function() {
 // MAIN
 
 window.onload = function() {
-  setInterval(updateCurrentTime(), 1000); // once-per-second (local)
-  setInterval(updateForecast(), 60000); // once-per-minute
-  setInterval(updateCurrentTemp(), 60000);  // once-per-minute
+  updateCurrentTime();
+  updateForecast();
+  updateCurrentTemp();
+  setInterval(updateCurrentTime, 1000); // once-per-second (local)
+  setInterval(updateForecast, 60000); // once-per-minute
+  setInterval(updateCurrentTemp, 60000);  // once-per-minute
 };

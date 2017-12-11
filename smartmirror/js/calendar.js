@@ -79,13 +79,13 @@ function listUpcomingEvents() {
   }).then(function(response) {
     var events = response.result.items;
     if (events.length > 0) {
-      var runningHTML = "<h1>Calendar</h1><table>"
+      var runningHTML = "<h1>Calendar</h1><table>";
       for (i = 0; i < events.length; i++) {
         var event = events[i];
         var when = event.start.dateTime;
-        var timeString = ""
+        var timeString = "";
         if (!when) {
-          timeString = "All day"
+          timeString = "All day";
         } else {
           var hours = when.getHours();
           var minutes = when.getMinutes();

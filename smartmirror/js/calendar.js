@@ -65,24 +65,44 @@ function handleAuthClick(event) {
  * appropriate message is printed.
  */
 function listUpcomingEvents() {
+  var nextMidnight = new Date();
+  nextMidnight.setHours(24,0,0,0);
+
   gapi.client.calendar.events.list({
     'calendarId': 'primary',
     'timeMin': (new Date()).toISOString(),
+    'timeMax': (nextMidnight.toISOString(),
     'showDeleted': false,
     'singleEvents': true,
     'maxResults': 10,
     'orderBy': 'startTime'
   }).then(function(response) {
     var events = response.result.items;
-    if (events.length < 0) {
+    if (events.length > 0) {
+      var runningHTML = "<h1>Calendar</h1><table>"
       for (i = 0; i < events.length; i++) {
         var event = events[i];
         var when = event.start.dateTime;
+        var timeString = ""
         if (!when) {
-          when = event.start.date;
+          timeString = "All day"
+        } else {
+          var hours = when.getHours();
+          var minutes = when.getMinutes();
+          var ampm = hours >= 12 ? 'pm' : 'am';
+          hours = hours % 12;
+          hours = hours ? hours : 12; // the hour '0' should be '12'
+          if (minutes == 0) {
+            minutes = "";
+          } else {
+            minutes = minutes < 10 ? '0' + minutes : minutes;
+            minutes = ":" + minutes;
+          }
+          timeString = hours + minutes + " " + ampm;
         }
-        //print(event.summary + ' (' + when + ')')
+        runningHTML += "<tr><td class=\"event-time\">" + timeString + "</td><td class=\"event-title\">" + event.summary + "</td></tr>";
       }
+      document.getElementsByClassName('calendar')[0].innerHTML = runningHTML;
     } else {
       document.getElementsByClassName('calendar')[0].innerHTML = "<h1>Calendar</h1><p>No upcoming events today.</p>";
     }

@@ -4,6 +4,20 @@ body {
 	font-family: 'Lato', sans-serif;
 }
 
+table {
+	width: 100%;
+}
+
+tr td {
+	border-bottom: 3px solid #FFFFFF;
+	padding-bottom: 15px;
+	padding-top: 10px;
+}
+
+tr:last-child td {
+	border-bottom: none;
+}
+
 .calendar {
 	font-size: 40px;
 	font-weight: bold;
@@ -11,10 +25,16 @@ body {
 	float: left;
 	font-size: 30px;
 	font-weight: bold;
+	width: 50%;
 }
 
 .calendar h1 {
 	font-size: 40px;
+}
+
+.event-time {
+	padding-right: 40px;
+	width: 140px;
 }
 
 .forecast {
@@ -22,7 +42,7 @@ body {
 	font-weight: bold;
 	position: relative;
 	float: left;
-	margin-right: 150px;
+	width: 50%;
 }
 
 .forecast h1 {
@@ -67,6 +87,7 @@ body {
 	position: absolute;
 	top: 400px;
 	left: 100px;
+	right: 100px;
 }
 
 .temperature {

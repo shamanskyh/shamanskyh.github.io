@@ -61,18 +61,6 @@ var updateForecast = function() {
   });
 }
 
-var updateCalendar = function() {
-  // getJSON('http://api.wunderground.com/api/13fa6ccf8c8d3753/conditions/q/' + locationString + '.json',
-  // function(err, data) {
-  //   if (err !== null) {
-  //     // no-op
-  //   } else {
-  //     let temp = Math.round(data.current_observation.temp_f);
-  //     document.getElementsByClassName('temperature')[0].innerHTML = "<p>" + temp + "°</p>";
-  //   }
-  // });
-}
-
 // MAIN
 
 window.onload = function() {

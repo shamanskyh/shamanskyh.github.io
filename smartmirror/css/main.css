@@ -6,6 +6,8 @@ body {
 
 table {
 	width: 100%;
+	border-collapse: collapse;
+	table-layout: auto;
 }
 
 tr td {
@@ -33,8 +35,12 @@ tr:last-child td {
 }
 
 .event-time {
-	padding-right: 40px;
-	width: 140px;
+	white-space: nowrap;
+	padding-right: 30px;
+}
+
+.event-title {
+	width: 100%;
 }
 
 .forecast {
